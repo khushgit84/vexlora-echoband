@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="deep_black">#FF050508</color>
+    <color name="surface_dark">#FF12121A</color>
+    <color name="electric_blue">#FF00B4FF</color>
+    <color name="violet">#FF8B5CF6</color>
+    <color name="text_primary">#FFE8E8F0</color>
+</resources>

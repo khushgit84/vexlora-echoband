@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VEXLORA EchoBand</string>
+    <string name="bluetooth_connected">Connected</string>
+    <string name="bluetooth_disconnected">Disconnected</string>
+    <string name="bluetooth_searching">Searching…</string>
+    <string name="mic_button_description">Tap to speak</string>
+    <string name="status_idle">Ready</string>
+    <string name="status_listening">Listening…</string>
+    <string name="status_thinking">Thinking…</string>
+    <string name="status_speaking">Speaking…</string>
+    <string name="status_error">Error</string>
+    <string name="settings">Settings</string>
+    <string name="conversation_history">Conversation</string>
+    <string name="permission_rationale">Microphone access is required for voice commands.</string>
+    <string name="no_speech_recognized">No speech recognized. Tap to try again.</string>
+</resources>

@@ -1,0 +1,24 @@
+# Android & Gradle
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+app/build/
+
+# Backend & Environment secrets
+backend/.env
+backend/venv/
+backend/.venv/
+backend/__pycache__/
+*.env
+*.pyc
+
+# Built binaries
+*.apk
+*.aab
