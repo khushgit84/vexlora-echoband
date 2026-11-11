@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEXLORA EchoBand • AI Voice Companion for Headphones</title>
+  <meta name="description" content="Turn your Sony WH-CH510 or any Bluetooth headphones into an always-listening, Indian Hinglish AI voice companion with background phone hardware control and memory." />
+  <meta name="theme-color" content="#050508" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="VEXLORA EchoBand • AI Voice Wearable" />
+  <meta property="og:description" content="Indian Hinglish AI voice companion with continuous auto-listening, torch & volume hardware control, and persistent memory vault." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vexlora-echoband.vercel.app" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient Neon Background Blobs -->
+  <div class="ambient-glow glow-blue"></div>
+  <div class="ambient-glow glow-violet"></div>
+  <div class="ambient-glow glow-pink"></div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="brand">
+        <img src="favicon.svg" alt="VEXLORA Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">VEXLORA</span>
+          <span class="brand-product">EchoBand</span>
+        </div>
+      </div>
+      
+      <div class="nav-actions">
+        <div class="backend-pill" id="backendStatusPill" title="Vercel Cloud Serverless Gateway Status">
+          <span class="status-dot"></span>
+          <span class="status-label">Cloud AI Online</span>
+        </div>
+        <a href="https://github.com/khushgit84/vexlora-echoband" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section">
+      <div class="container hero-container">
+        <!-- Floating badge -->
+        <div class="version-badge">
+          <span class="badge-pulse"></span>
+          <span class="badge-text">v1.0.0 Release • Android 8.0+ Ready</span>
+        </div>
+
+        <h1 class="hero-title">
+          Turn Any Headphones into an <span class="gradient-text">AI Wearable</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Hands-free <strong>Indian Hinglish</strong> conversational companion built for Sony WH-CH510 & Bluetooth devices. With continuous auto-listening, physical torch and volume controls, and a persistent memory vault that remembers everything.
+        </p>
+
+        <!-- Primary CTA Buttons -->
+        <div class="hero-cta-group">
+          <a href="https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk" class="btn btn-primary btn-lg download-btn" id="directDownloadBtn">
+            <svg class="icon icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <div class="btn-text-block">
+              <span class="btn-main-label">Download APK (v1.0.0)</span>
+              <span class="btn-sub-label">16.4 MB • Direct High-Speed CDN</span>
+            </div>
+          </a>
+
+          <a href="#quickInstallSection" class="btn btn-secondary btn-lg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Scan QR on Mobile</span>
+          </a>
+        </div>
+
+        <!-- Meta specs pills -->
+        <div class="spec-pills">
+          <div class="spec-item">
+            <span class="spec-check">✓</span>
+            <span>Zero Ads</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-check">✓</span>
+            <span>100% Free & Open Source</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-check">✓</span>
+            <span>Local Memory Vault</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-check">✓</span>
+            <span>Sony WH-CH510 Native</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scan to Install & Interactive Demo Section -->
+    <section class="container showcase-grid" id="quickInstallSection">
+      <!-- Card 1: Mobile QR Code Install -->
+      <div class="glass-card qr-card">
+        <div class="card-header">
+          <div class="icon-circle icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </div>
+          <div>
+            <h2 class="card-title">Scan to Install on Mobile</h2>
+            <p class="card-subtitle">Point your phone's camera to install directly</p>
+          </div>
+        </div>
+
+        <div class="qr-display-wrapper">
+          <div class="qr-frame">
+            <img id="qrCodeImg" alt="Scan QR Code to Download APK" class="qr-code-img" />
+            <div class="qr-scanner-line"></div>
+          </div>
+          <p class="qr-hint">Works on Chrome, Google Lens, or native camera</p>
+        </div>
+
+        <div class="card-footer-actions">
+          <button class="btn btn-secondary btn-block" id="copyLinkBtn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span id="copyLinkText">Copy Direct APK Link</span>
+          </button>
+          <a href="https://github.com/khushgit84/vexlora-echoband/releases/tag/v1.0.0" target="_blank" rel="noopener" class="link-secondary">
+            View Release on GitHub →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Interactive Live Voice/Chat Simulator -->
+      <div class="glass-card simulator-card">
+        <div class="card-header">
+          <div class="icon-circle icon-violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+          </div>
+          <div>
+            <h2 class="card-title">Try EchoBand Online</h2>
+            <p class="card-subtitle">Live test with Google Gemini 3.5 Flash Gateway</p>
+          </div>
+        </div>
+
+        <!-- Chat / Voice Stream Display -->
+        <div class="chat-viewport" id="chatViewport">
+          <div class="chat-bubble ai-bubble">
+            <div class="bubble-avatar">EB</div>
+            <div class="bubble-content">
+              <p>Namaste! Main hoon EchoBand. Aap mujhse Indian Hinglish mein baat kar sakte hain, torch on/off bol sakte hain, ya koi memory yaad rakhne ko bol sakte hain. Try karo!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visualizer Wave -->
+        <div class="audio-wave" id="audioWave">
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div class="prompt-chips">
+          <button class="chip" data-prompt="Turn on torch light">💡 "Turn on torch"</button>
+          <button class="chip" data-prompt="Volume 80% kardo">🔊 "Volume 80% kardo"</button>
+          <button class="chip" data-prompt="Mera favourite color electric blue hai, yaad rakhna">🧠 "Mera favourite color..."</button>
+          <button class="chip" data-prompt="Set a timer for 15 minutes">⏰ "Set a 15 min timer"</button>
+          <button class="chip" data-prompt="Kya haal chaal hai bhai?">🇮🇳 "Bhai kya haal chaal?"</button>
+        </div>
+
+        <!-- Input control bar -->
+        <form class="chat-input-bar" id="demoChatForm">
+          <button type="button" class="mic-toggle-btn" id="micToggleBtn" title="Speak into your microphone">
+            <svg class="icon mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+          </button>
+          <input type="text" id="demoMessageInput" placeholder="Type or click the mic to speak..." autocomplete="off" />
+          <button type="submit" class="send-btn" id="sendBtn" title="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="features-section container">
+      <div class="section-heading text-center">
+        <span class="section-tag">ENGINEERED FOR WEARABLES</span>
+        <h2 class="section-title">Built for Your Headphones & Everyday Life</h2>
+        <p class="section-subtitle">Experience true AI voice autonomy without touching your phone screen.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon icon-cyan">🎙️</div>
+          <h3 class="feature-title">Continuous Auto-Listening</h3>
+          <p class="feature-desc">Speaks back and stays attentive. Smart silence detection auto-cycles the microphone so you have natural, uninterrupted back-and-forth conversations.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon icon-indigo">🇮🇳</div>
+          <h3 class="feature-title">Indian Hinglish & Multi-Lang</h3>
+          <p class="feature-desc">Calibrated human voice synthesis tuned with natural Indian accents, conversational Hindi-English phrasing, and instant multi-language switching.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon icon-yellow">🔦</div>
+          <h3 class="feature-title">Hardware Torch & Volume Control</h3>
+          <p class="feature-desc">Command your phone directly: say "turn on torch", "flashlight band karo", or "volume 50 percent". Operates natively with Android CameraManager and AudioManager.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon icon-purple">🧠</div>
+          <h3 class="feature-title">Persistent Memory Vault</h3>
+          <p class="feature-desc">Never repeats or forgets. Remembers your friends' names, favorite orders, notes, and tasks permanently across app restarts.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon icon-blue">🎧</div>
+          <h3 class="feature-title">Sony WH-CH510 Native Hooks</h3>
+          <p class="feature-desc">Tuned for Bluetooth SCO and A2DP profiles. Single and double click headphone media buttons summon EchoBand even when your phone is in your pocket.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon icon-pink">⚡</div>
+          <h3 class="feature-title">Background Foreground Service</h3>
+          <p class="feature-desc">Runs in the background without battery draining. Android foreground service ensures EchoBand stays alive while multitasking or screen-off.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step-by-Step Installation Guide -->
+    <section class="install-guide-section container">
+      <div class="section-heading text-center">
+        <span class="section-tag">QUICK SETUP</span>
+        <h2 class="section-title">How to Install on Android in 60 Seconds</h2>
+        <p class="section-subtitle">Since EchoBand is an open-source APK release, follow these simple steps:</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Download APK</h3>
+          <p class="step-desc">Tap the <strong>Download APK</strong> button above or scan the QR code. Your browser will save <code>VEXLORA-EchoBand-v1.0.0.apk</code>.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Allow Unknown Sources</h3>
+          <p class="step-desc">When prompted by Chrome/Downloads, tap <strong>Settings</strong> and enable <strong>"Allow from this source"</strong> (or tap <strong>"Install Anyway"</strong>).</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Grant Permissions</h3>
+          <p class="step-desc">Open EchoBand and approve <strong>Microphone</strong> (for speech recognition) and <strong>Camera</strong> (only required for flashlight toggle).</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3 class="step-title">Connect & Speak</h3>
+          <p class="step-desc">Pair your Sony WH-CH510 or any Bluetooth headset. Toggle <strong>"Auto Listen"</strong> and start talking naturally!</p>
+        </div>
+      </div>
+
+      <div class="install-cta-banner">
+        <div>
+          <h3>Ready to upgrade your headphones?</h3>
+          <p>Get the latest production build and enjoy voice autonomy today.</p>
+        </div>
+        <a href="https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk" class="btn btn-primary btn-md">
+          Download v1.0.0 APK (16.4 MB)
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="faq-section container">
+      <div class="section-heading text-center">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">Why does Android show a warning when installing the APK?</summary>
+          <div class="faq-answer">
+            <p>Android displays a standard "File might be harmful" or "Unknown app" warning whenever an APK is installed directly from the web rather than the Google Play Store. VEXLORA EchoBand is 100% open-source, safe, and contains zero trackers or ads. You can safely tap <strong>Install anyway</strong>.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Can I use my own Gemini API Key?</summary>
+          <div class="faq-answer">
+            <p>Yes! In the app's Settings screen, you can paste your own Google Gemini API key directly to unlock unlimited high-speed requests, or you can use our pre-configured cloud gateway without entering any keys.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Does it only work with Sony WH-CH510 headphones?</summary>
+          <div class="faq-answer">
+            <p>While EchoBand is specifically tested and optimized for the Sony WH-CH510 button hooks and Bluetooth SCO profile, it works seamlessly with <strong>any Bluetooth earbuds, wired headphones, or directly through your phone's built-in speaker and microphone</strong>.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How does phone hardware control work?</summary>
+          <div class="faq-answer">
+            <p>EchoBand parses speech intents locally. Phrases like "torch on", "volume 70%", or "timer for 5 minutes" trigger native Android system services (<code>CameraManager</code>, <code>AudioManager</code>, and <code>AlarmClock</code>) with zero cloud latency.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="brand">
+          <img src="favicon.svg" alt="VEXLORA Logo" class="brand-logo sm" />
+          <span class="brand-name">VEXLORA</span>
+        </div>
+        <p class="footer-copy">Crafted for AI wearables & next-gen voice interfaces by <a href="https://github.com/khushgit84" target="_blank" rel="noopener">khushgit84</a>.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com/khushgit84/vexlora-echoband" target="_blank" rel="noopener">GitHub Repository</a>
+        <a href="https://github.com/khushgit84/vexlora-echoband/releases/tag/v1.0.0" target="_blank" rel="noopener">v1.0.0 Release</a>
+        <a href="https://backend-liard-six-23.vercel.app/" target="_blank" rel="noopener">API Status</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

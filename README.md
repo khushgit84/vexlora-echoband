@@ -1,120 +1,120 @@
-# VEXLORA EchoBand — AI Voice Assistant (Android MVP)
+# VEXLORA EchoBand — AI Voice Assistant (Android & Wearable Platform)
 
-A software prototype of **VEXLORA EchoBand**, an AI voice assistant designed to pair with **Sony WH-CH510 Bluetooth headphones**, featuring a futuristic, dark interface powered by **Jetpack Compose**, **Material 3**, native **Android Speech Recognition**, **Android TextToSpeech**, and a secure **FastAPI + Google Gemini** backend.
+[![Install App](https://img.shields.io/badge/Web_Installer-Live_on_Vercel-00B4FF?style=for-the-badge&logo=vercel)](https://vexlora-echoband.vercel.app)
+[![Download APK](https://img.shields.io/badge/Download_APK-v1.0.0_(16.4_MB)-8B5CF6?style=for-the-badge&logo=android)](https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk)
+[![GitHub Release](https://img.shields.io/github/v/release/khushgit84/vexlora-echoband?style=for-the-badge&color=10B981)](https://github.com/khushgit84/vexlora-echoband/releases/tag/v1.0.0)
+[![Backend Status](https://img.shields.io/badge/API_Gateway-Online-00E5A0?style=for-the-badge&logo=fastapi)](https://backend-liard-six-23.vercel.app/)
 
----
+A production software release of **VEXLORA EchoBand**, an AI voice assistant designed to pair with **Sony WH-CH510 Bluetooth headphones** and any Android device. Features a futuristic cyber interface built with **Jetpack Compose**, **Material 3**, continuous **Speech Recognition**, calibrated **Indian Hinglish TextToSpeech**, native **Phone Hardware Control** (flashlight/volume/timers), a **Persistent Memory Vault**, and a serverless **Google Gemini 3.5 Flash** backend.
 
-## 🎧 Hardware Target: Sony WH-CH510
-- **Audio Routing**: EchoBand listens for Bluetooth audio output devices (`TYPE_BLUETOOTH_A2DP`, `TYPE_BLUETOOTH_SCO`, `TYPE_BLE_HEADSET`).
-- **Hands-Free Voice Flow**: Once connected, audio playback routes directly to the Sony WH-CH510 headset drivers and microphone input.
-- **Dynamic Connection Display**: Live connection status card shows connected headphone status with color coding (Green for Connected, Cyan for Searching, Rose for Disconnected).
-
----
-
-## 🎨 Design & Aesthetic
-- **Brand**: VEXLORA
-- **Product**: EchoBand
-- **Background**: Deep Black (`#050508`) & Obsidian Surface (`#12121A`)
-- **Primary Accent**: Electric Blue (`#00B4FF`)
-- **Secondary Accent**: Violet / Cyber Purple (`#8B5CF6`)
-- **Status Accents**:
-  - Ready/Idle: Obsidian Slate (`#4A4A6A`)
-  - Listening: Pulsing Electric Blue (`#00B4FF`)
-  - Thinking: Shimmering Violet (`#8B5CF6`)
-  - Speaking: Neo-Mint Wave (`#00E5A0`)
-  - Error: Coral Rose (`#FF4B6E`)
-- **Cards**: Rounded cards (`18dp` - `20dp`) with glowing borders and subtle gradient fills.
-- **Microphone**: Large animated button with multi-layer radial ripple and halo rings that pulse in real-time during speech capture and playback.
+🌐 **Web Installer & Live Demo**: [https://vexlora-echoband.vercel.app](https://vexlora-echoband.vercel.app)  
+📥 **Direct APK Download**: [VEXLORA-EchoBand-v1.0.0.apk (16.4 MB)](https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk)
 
 ---
 
-## 🏛 Clean Architecture
+## ⚡ Highlights & Key Capabilities
 
-The application is structured into strict architectural layers:
+1. 🌐 **Web Installer & In-Browser Voice Simulator**
+   - Live web app at [`https://vexlora-echoband.vercel.app`](https://vexlora-echoband.vercel.app) with QR code camera scanning for instant mobile install.
+   - Interactive web test bench using browser Speech Recognition and Speech Synthesis talking directly to the live Google Gemini backend.
+2. 🎙️ **Continuous Auto-Listening Loop**
+   - Truly hands-free voice experience. Once you start speaking, EchoBand replies and immediately resumes listening so you never have to tap buttons.
+3. 🇮🇳 **Real Indian Hinglish & Multi-Language Voice**
+   - Speaks friendly, natural spoken Indian Hinglish (e.g. *"Haan bilkul bhai, main torch on kar raha hoon!"*) with calibrated pitch and speed.
+   - Dynamic language switching: Indian English, Hindi, Tamil, Telugu, Global English, Spanish, French, and German.
+4. 🔦 **Background Phone Hardware Control**
+   - Command your phone naturally even while locked or running in the background:
+     - Flashlight: *"Turn on torch"*, *"Flashlight band karo"* (CameraManager integration).
+     - Volume: *"Volume 80% kardo"*, *"Increase volume"* (AudioManager integration).
+     - Timers & Alarms: *"Set a timer for 10 minutes"* (AlarmClock integration).
+5. 🧠 **Persistent Memory Vault**
+   - Permanent local memory storage (`MemoryManager.kt`) that remembers your preferences, names, and notes across app restarts.
+6. 🎧 **Sony WH-CH510 Optimized**
+   - Native Bluetooth SCO & A2DP routing, headphone media button hook support, and real-time connection status indicators.
+7. 🛡️ **Zero Hardcoded Secrets**
+   - Dual-mode architecture: Use the included high-speed Vercel serverless proxy or paste your own Gemini API key directly into the app settings for unlimited requests.
+
+---
+
+## 📲 Quick Installation Guide
+
+### Method A: Install via Web App (Recommended)
+1. Open [**https://vexlora-echoband.vercel.app**](https://vexlora-echoband.vercel.app) on your phone or scan the QR code on your computer.
+2. Tap **Download APK (v1.0.0)**.
+3. When prompted, tap **Allow from this source** or **Install Anyway**.
+4. Open EchoBand, grant Microphone and Camera (for flashlight) permissions, and enjoy!
+
+### Method B: Direct APK Download
+- [Download VEXLORA-EchoBand-v1.0.0.apk (16.4 MB)](https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk)
+
+---
+
+## 🏛 Clean Repository Architecture
 
 ```
 vexlora-echoband/
-├── app/
+├── app/                                 # Android Application (Jetpack Compose + Kotlin)
 │   └── src/main/
-│       ├── AndroidManifest.xml
+│       ├── AndroidManifest.xml          # Background services, audio, camera, bluetooth permissions
 │       ├── java/com/vexlora/echoband/
-│       │   ├── VexloraApp.kt                # Application entry
-│       │   ├── MainActivity.kt              # Edge-to-edge Compose host
-│       │   ├── model/
-│       │   │   ├── AssistantState.kt        # State enums (IDLE, LISTENING, THINKING, SPEAKING, ERROR)
-│       │   │   └── ConversationMessage.kt   # Chat session history model
-│       │   ├── service/
-│       │   │   ├── SpeechRecognitionService.kt  # Native Android SpeechRecognizer wrapper with StateFlow
-│       │   │   ├── TextToSpeechService.kt       # Native Android TTS engine with queue management
-│       │   │   ├── BluetoothService.kt          # BroadcastReceiver & AudioDeviceInfo detector
-│       │   │   ├── AiService.kt                 # Retrofit interface & DTOs
-│       │   │   └── AiServiceManager.kt          # OkHttp client for secure backend
-│       │   ├── viewmodel/
-│       │   │   └── HomeViewModel.kt         # Reactive state orchestrator
-│       │   └── ui/
-│       │       ├── theme/
-│       │       │   ├── Color.kt             # Brand color system
-│       │       │   ├── Type.kt              # Futuristic typography scales
-│       │       │   └── Theme.kt             # Material 3 Dark Color Scheme & System bar styling
-│       │       ├── components/
-│       │       │   ├── VexloraLogo.kt           # Animated glowing brand mark
-│       │       │   ├── BluetoothStatusCard.kt   # Headphone connection card
-│       │       │   ├── MicrophoneButton.kt      # Interactive pulsing mic control
-│       │       │   ├── StatusIndicator.kt       # Listening/Thinking/Speaking badges
-│       │       │   └── ConversationBubble.kt    # Styled conversation history bubbles
-│       │       └── screens/
-│       │           └── HomeScreen.kt            # Complete integrated dashboard
-│       └── res/
-│           ├── values/
-│           │   ├── strings.xml
-│           │   ├── colors.xml
-│           │   └── themes.xml
-│           └── drawable/ & mipmap-anydpi-v26/   # Adaptive icons
-└── backend/
-    ├── main.py                              # FastAPI proxy for Google Gemini
-    ├── requirements.txt
-    ├── .env.example
-    └── README.md
+│       │   ├── VexloraApp.kt            # Application initialization
+│       │   ├── MainActivity.kt          # Edge-to-edge UI entrypoint
+│       │   ├── model/                   # Data models (Languages, Memories, AssistantState)
+│       │   ├── service/                 # Hardware & AI Services
+│       │   │   ├── SpeechRecognitionService.kt  # Continuous listening engine
+│       │   │   ├── TextToSpeechService.kt       # Indian Hinglish TTS engine
+│       │   │   ├── BluetoothService.kt          # Bluetooth headset connection monitor
+│       │   │   ├── DeviceControlService.kt      # Native torch, volume & timer controls
+│       │   │   ├── EchoBandForegroundService.kt # Background microphone service
+│       │   │   ├── MemoryManager.kt             # Local JSON memory vault
+│       │   │   └── AiServiceManager.kt          # Cloud backend & direct Gemini gateway
+│       │   ├── ui/
+│       │   │   ├── components/          # Cyber visualizer, mic button, memory drawer
+│       │   │   └── screens/HomeScreen.kt# Main interactive dashboard
+│       │   └── viewmodel/HomeViewModel.kt
+├── backend/                             # Serverless FastAPI AI Proxy
+│   ├── main.py                          # Gemini 3.5 Flash chat endpoint
+│   ├── vercel.json                      # Vercel serverless deployment config
+│   ├── api/index.py                     # Vercel serverless gateway wrapper
+│   └── requirements.txt
+└── frontend/                            # Web Landing Page & APK Installer
+    ├── index.html                       # Futuristic installer & QR scanning page
+    ├── styles.css                       # Cyber glassmorphic theme & neon visuals
+    ├── app.js                           # Interactive online voice simulator
+    ├── favicon.svg                      # Vector brand icon
+    └── vercel.json                      # Vercel static edge hosting config
 ```
 
 ---
 
-## 🔒 Security Guarantee
-- **Zero API Keys in APK**: No Gemini keys are hardcoded in Kotlin or Android resource files.
-- **Server-Side Key Isolation**: All Gemini requests go through the FastAPI proxy (`backend/`), which reads `GEMINI_API_KEY` from its private `.env` environment.
-- **Decompilation Protection**: Even if the APK is decompiled with JADX or Apktool, no secrets can be extracted.
+## 🛠️ Local Development & Build
 
----
-
-## 🚀 Running the Project
-
-### 1. Start the Gemini Backend
-```bash
-cd backend
-python -m venv venv
-.\venv\Scripts\activate   # On Windows
-pip install -r requirements.txt
-copy .env.example .env     # Add your GEMINI_API_KEY
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-### 2. Build and Run the Android App
-```bash
-# In the project root (vexlora-echoband/)
+### Android App Build
+```powershell
+# Build Debug APK
 .\gradlew.bat assembleDebug
 
-# Install on connected device or emulator:
+# Install directly to USB/Wi-Fi connected Android device
 .\gradlew.bat installDebug
 ```
 
+### Python Backend
+```powershell
+cd backend
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+
+### Frontend Installer
+```powershell
+cd frontend
+# Run local live-server or deploy to Vercel
+vercel.cmd --prod
+```
+
 ---
 
-## 📱 Features Included
-- [x] **Animated Brand Logo**: Glowing VEXLORA EchoBand emblem.
-- [x] **Sony WH-CH510 Bluetooth Status**: Real-time detection of connected Bluetooth audio peripherals.
-- [x] **Interactive Microphone**: Radar-glow pulsing button supporting speech recognition start/stop.
-- [x] **Assistant State Machine**: Transitions smoothly between `IDLE` -> `LISTENING` -> `THINKING` -> `SPEAKING` -> `ERROR`.
-- [x] **Native Speech-to-Text**: Free-form speech input with real-time partial transcription.
-- [x] **Native Text-to-Speech**: Crystal clear audio playback via Android TTS engine.
-- [x] **Conversation Stream**: Distinct user & Gemini message cards with auto-scroll and clear functionality.
-- [x] **Settings Modal**: Quick access to Bluetooth system settings, audio routing guide, and security architecture summary.
+## 📄 License & Credits
+Crafted with ❤️ for **VEXLORA** by [khushgit84](https://github.com/khushgit84). Released under the MIT License.

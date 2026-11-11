@@ -58,6 +58,9 @@ def root(request: Request):
         "status": "online",
         "version": "1.0.0",
         "gemini_configured": bool(GEMINI_API_KEY),
+        "frontend_installer": "https://vexlora-echoband.vercel.app",
+        "apk_download": "https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk",
+        "github_repo": "https://github.com/khushgit84/vexlora-echoband",
         "requested_path": request.url.path,
         "headers": dict(request.headers),
     }
