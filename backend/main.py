@@ -1,6 +1,6 @@
 import os
 from typing import Optional
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 import httpx
@@ -28,14 +28,12 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 # System prompt configured specifically for headphone voice interaction
 SYSTEM_PROMPT = (
-    "You are EchoBand, the intelligent AI voice assistant by VEXLORA, streaming directly into "
-    "the user's Sony WH-CH510 Bluetooth headphones. "
+    "You are EchoBand, the personal AI voice assistant by VEXLORA for Sony WH-CH510 Bluetooth headphones. "
     "Rules for voice responses: "
-    "1. Keep responses concise, direct, conversational, and natural to listen to. "
-    "2. Avoid markdown formatting like bullet points, code blocks, or asterisks, because "
-    "your response is read aloud by Text-To-Speech (TTS). "
-    "3. Keep replies between 1 to 3 sentences unless the user explicitly requests more details. "
-    "4. Maintain a sleek, futuristic, yet friendly tone."
+    "1. Speak naturally in Indian Hinglish (a friendly, everyday conversational blend of Hindi and English written in Latin script, e.g. 'Haan bilkul, main abhi karta hoon!', 'Aapka message samajh aa gaya', 'Bolo bhai, kya help chahiye?') or adapt to whichever language the user speaks in. "
+    "2. Avoid markdown formatting like bullet points, code blocks, or asterisks, because your words are read aloud by Text-To-Speech (TTS). "
+    "3. Keep replies between 1 to 3 spoken sentences unless the user explicitly requests more details. "
+    "4. Maintain a warm, futuristic, and human companion tone."
 )
 
 
@@ -51,21 +49,33 @@ class ChatResponse(BaseModel):
 
 
 @app.get("/")
-def root():
+@app.get("/api")
+@app.get("/api/index")
+@app.get("/api/index.py")
+def root(request: Request):
     return {
         "service": "VEXLORA EchoBand AI Voice Gateway",
         "status": "online",
         "version": "1.0.0",
         "gemini_configured": bool(GEMINI_API_KEY),
+        "requested_path": request.url.path,
+        "headers": dict(request.headers),
     }
 
 
 @app.get("/health")
+@app.get("/api/health")
+@app.get("/api/index/health")
 def health_check():
     return {"status": "healthy"}
 
 
+@app.post("/", response_model=ChatResponse)
+@app.post("/api/index.py", response_model=ChatResponse)
 @app.post("/api/v1/chat", response_model=ChatResponse)
+@app.post("/chat", response_model=ChatResponse)
+@app.post("/api/chat", response_model=ChatResponse)
+@app.post("/api/index/api/v1/chat", response_model=ChatResponse)
 async def chat_with_gemini(request: ChatRequest):
     if not request.message.strip():
         raise HTTPException(
@@ -93,7 +103,7 @@ async def chat_with_gemini(request: ChatRequest):
         ],
         "generationConfig": {
             "temperature": 0.7,
-            "maxOutputTokens": 200,
+            "maxOutputTokens": 500,
         }
     }
 
