@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>FullScreen</key>
+            <true/>
+            <key>Icon</key>
+            <data>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</data>
+            <key>IsRemovable</key>
+            <true/>
+            <key>Label</key>
+            <string>EchoBand</string>
+            <key>PayloadDescription</key>
+            <string>VEXLORA EchoBand AI Voice Companion</string>
+            <key>PayloadDisplayName</key>
+            <string>EchoBand</string>
+            <key>PayloadIdentifier</key>
+            <string>com.vexlora.echoband.webclip</string>
+            <key>PayloadType</key>
+            <string>com.apple.webClip.managed</string>
+            <key>PayloadUUID</key>
+            <string>b3d2f954-4a21-4f12-8f5b-9d29ef1939de</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>Precomposed</key>
+            <true/>
+            <key>URL</key>
+            <string>https://vexlora-echoband.vercel.app</string>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Installs VEXLORA EchoBand AI Voice Companion directly onto your Apple iPhone/iPad Home Screen.</string>
+    <key>PayloadDisplayName</key>
+    <string>VEXLORA EchoBand (Apple iOS)</string>
+    <key>PayloadIdentifier</key>
+    <string>com.vexlora.echoband.iosprofile</string>
+    <key>PayloadOrganization</key>
+    <string>VEXLORA</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>7e21a83b-9a41-419b-b921-2a14ef1939de</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>

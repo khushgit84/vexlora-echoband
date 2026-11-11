@@ -2,16 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VEXLORA EchoBand • AI Voice Companion for Headphones</title>
-  <meta name="description" content="Turn your Sony WH-CH510 or any Bluetooth headphones into an always-listening, Indian Hinglish AI voice companion with background phone hardware control and memory." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>VEXLORA EchoBand • AI Voice Companion for Headphones (Android & Apple iOS)</title>
+  <meta name="description" content="Turn your Sony WH-CH510 or any Bluetooth headphones into an always-listening, Indian Hinglish AI voice companion with background phone hardware control, persistent memory, and custom Gemini API key." />
   <meta name="theme-color" content="#050508" />
-  
+
+  <!-- PWA & Apple iOS Metadata -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="EchoBand" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
   <!-- Open Graph -->
   <meta property="og:title" content="VEXLORA EchoBand • AI Voice Wearable" />
-  <meta property="og:description" content="Indian Hinglish AI voice companion with continuous auto-listening, torch & volume hardware control, and persistent memory vault." />
+  <meta property="og:description" content="Indian Hinglish AI voice companion for Android & Apple iOS with continuous auto-listening, torch & volume hardware control, and custom Gemini API key." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vexlora-echoband.vercel.app" />
+  <meta property="og:image" content="https://vexlora-echoband.vercel.app/icon-512.png" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,9 +47,13 @@
       </div>
       
       <div class="nav-actions">
+        <button class="key-pill" id="apiKeyModalTrigger" title="Configure your custom Gemini API key for unlimited speed">
+          <span class="key-pill-dot" id="keyPillDot"></span>
+          <span class="key-pill-text" id="keyPillLabel">Cloud Mode</span>
+        </button>
         <div class="backend-pill" id="backendStatusPill" title="Vercel Cloud Serverless Gateway Status">
           <span class="status-dot"></span>
-          <span class="status-label">Cloud AI Online</span>
+          <span class="status-label">AI Gateway Online</span>
         </div>
         <a href="https://github.com/khushgit84/vexlora-echoband" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
           <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -57,7 +70,7 @@
         <!-- Floating badge -->
         <div class="version-badge">
           <span class="badge-pulse"></span>
-          <span class="badge-text">v1.0.0 Release • Android 8.0+ Ready</span>
+          <span class="badge-text">v1.0.0 Live • Android APK & Apple iOS Ready</span>
         </div>
 
         <h1 class="hero-title">
@@ -65,47 +78,85 @@
         </h1>
         
         <p class="hero-subtitle">
-          Hands-free <strong>Indian Hinglish</strong> conversational companion built for Sony WH-CH510 & Bluetooth devices. With continuous auto-listening, physical torch and volume controls, and a persistent memory vault that remembers everything.
+          Hands-free <strong>Indian Hinglish</strong> conversational companion for Sony WH-CH510 & Bluetooth devices. With continuous auto-listening, physical torch and volume controls, persistent memory vault, and custom Gemini API key integration.
         </p>
 
-        <!-- Primary CTA Buttons -->
-        <div class="hero-cta-group">
-          <a href="https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk" class="btn btn-primary btn-lg download-btn" id="directDownloadBtn">
-            <svg class="icon icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <div class="btn-text-block">
-              <span class="btn-main-label">Download APK (v1.0.0)</span>
-              <span class="btn-sub-label">16.4 MB • Direct High-Speed CDN</span>
-            </div>
-          </a>
+        <!-- Platform Switcher Tabs (Android vs Apple iOS) -->
+        <div class="platform-tabs-nav">
+          <button class="platform-tab active" data-tab="androidTab">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4126 13.8533 8.081 12 8.081s-3.5902.3315-5.1367.8698L4.841 5.4478a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>
+            <span>Android (APK)</span>
+          </button>
+          <button class="platform-tab" data-tab="appleTab">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.15c.67-.82 1.13-1.96.99-3.15-1.01.04-2.22.68-2.92 1.5-.62.72-1.15 1.88-1.01 3 .12 0 .24.01.37.01 1.01 0 1.9-.54 2.57-1.36z"/></svg>
+            <span>Apple iOS (iPhone / iPad / Mac)</span>
+          </button>
+        </div>
 
-          <a href="#quickInstallSection" class="btn btn-secondary btn-lg">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="7" height="7"></rect>
-              <rect x="14" y="3" width="7" height="7"></rect>
-              <rect x="14" y="14" width="7" height="7"></rect>
-              <rect x="3" y="14" width="7" height="7"></rect>
-            </svg>
-            <span>Scan QR on Mobile</span>
-          </a>
+        <!-- Android CTA Block -->
+        <div class="platform-content active" id="androidTab">
+          <div class="hero-cta-group">
+            <a href="https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk" class="btn btn-primary btn-lg download-btn" id="directDownloadBtn">
+              <svg class="icon icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <div class="btn-text-block">
+                <span class="btn-main-label">Download Android APK (v1.0.0)</span>
+                <span class="btn-sub-label">16.4 MB • Direct High-Speed CDN • Android 8.0+</span>
+              </div>
+            </a>
+
+            <a href="#quickInstallSection" class="btn btn-secondary btn-lg">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>Scan QR on Mobile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Apple iOS CTA Block -->
+        <div class="platform-content" id="appleTab">
+          <div class="hero-cta-group">
+            <a href="VEXLORA-EchoBand.mobileconfig" class="btn btn-primary btn-lg download-btn" id="appleProfileBtn">
+              <svg class="icon icon-download" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.15c.67-.82 1.13-1.96.99-3.15-1.01.04-2.22.68-2.92 1.5-.62.72-1.15 1.88-1.01 3 .12 0 .24.01.37.01 1.01 0 1.9-.54 2.57-1.36z"/>
+              </svg>
+              <div class="btn-text-block">
+                <span class="btn-main-label">Install Apple iOS Package (.mobileconfig)</span>
+                <span class="btn-sub-label">Direct iPhone / iPad WebClip Profile • Full Screen</span>
+              </div>
+            </a>
+
+            <button class="btn btn-secondary btn-lg" id="iosPwaGuideTrigger">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                <polyline points="16 6 12 2 8 6"></polyline>
+                <line x1="12" y1="2" x2="12" y2="15"></line>
+              </svg>
+              <span>Safari PWA Install Guide</span>
+            </button>
+          </div>
         </div>
 
         <!-- Meta specs pills -->
         <div class="spec-pills">
           <div class="spec-item">
             <span class="spec-check">✓</span>
-            <span>Zero Ads</span>
+            <span>Zero Ads & 100% Free</span>
           </div>
           <div class="spec-item">
             <span class="spec-check">✓</span>
-            <span>100% Free & Open Source</span>
+            <span>Custom Gemini Key Supported</span>
           </div>
           <div class="spec-item">
             <span class="spec-check">✓</span>
-            <span>Local Memory Vault</span>
+            <span>Universal Android & Apple iOS</span>
           </div>
           <div class="spec-item">
             <span class="spec-check">✓</span>
@@ -115,48 +166,130 @@
       </div>
     </section>
 
-    <!-- Scan to Install & Interactive Demo Section -->
+    <!-- Custom Gemini API Key Banner -->
+    <section class="container api-key-callout-section">
+      <div class="api-key-banner">
+        <div class="api-key-banner-icon">⚡</div>
+        <div class="api-key-banner-body">
+          <h3>Apply Your Own Google Gemini API Key</h3>
+          <p>Unlock <strong>unlimited speed</strong>, zero shared limits, and direct Gemini 3.5 Flash quota. Enter your key here or directly inside the Android App Settings!</p>
+        </div>
+        <button class="btn btn-primary btn-md" id="openApiKeyModalBtn">
+          <span>Apply Your Gemini Key</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Showcase Section: QR Code, Interactive Simulator & Hardware Mockup -->
     <section class="container showcase-grid" id="quickInstallSection">
-      <!-- Card 1: Mobile QR Code Install -->
-      <div class="glass-card qr-card">
-        <div class="card-header">
-          <div class="icon-circle icon-blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <!-- Left Column: Install Card & Phone Hardware Mockup -->
+      <div class="left-col-stack">
+        <!-- Card 1: QR Code Scanner -->
+        <div class="glass-card qr-card">
+          <div class="card-header">
+            <div class="icon-circle icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+            <div>
+              <h2 class="card-title">Scan to Install on Mobile</h2>
+              <p class="card-subtitle">Works on Android & Apple iOS Cameras</p>
+            </div>
           </div>
-          <div>
-            <h2 class="card-title">Scan to Install on Mobile</h2>
-            <p class="card-subtitle">Point your phone's camera to install directly</p>
+
+          <div class="qr-display-wrapper">
+            <div class="qr-frame">
+              <img id="qrCodeImg" alt="Scan QR Code to Download APK" class="qr-code-img" />
+              <div class="qr-scanner-line"></div>
+            </div>
+            <p class="qr-hint">Point iPhone/Android camera to download or install</p>
+          </div>
+
+          <div class="card-footer-actions">
+            <button class="btn btn-secondary btn-block" id="copyLinkBtn">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span id="copyLinkText">Copy Direct Link</span>
+            </button>
+            <a href="https://github.com/khushgit84/vexlora-echoband/releases/tag/v1.0.0" target="_blank" rel="noopener" class="link-secondary">
+              View GitHub Release v1.0.0 →
+            </a>
           </div>
         </div>
 
-        <div class="qr-display-wrapper">
-          <div class="qr-frame">
-            <img id="qrCodeImg" alt="Scan QR Code to Download APK" class="qr-code-img" />
-            <div class="qr-scanner-line"></div>
+        <!-- Card 2: Interactive Phone Hardware Mockup (Live Visualizer) -->
+        <div class="glass-card hardware-mockup-card">
+          <div class="card-header">
+            <div class="icon-circle icon-yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            </div>
+            <div>
+              <h2 class="card-title">Live Hardware Console</h2>
+              <p class="card-subtitle">Commands reflect here in real-time</p>
+            </div>
           </div>
-          <p class="qr-hint">Works on Chrome, Google Lens, or native camera</p>
-        </div>
 
-        <div class="card-footer-actions">
-          <button class="btn btn-secondary btn-block" id="copyLinkBtn">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span id="copyLinkText">Copy Direct APK Link</span>
-          </button>
-          <a href="https://github.com/khushgit84/vexlora-echoband/releases/tag/v1.0.0" target="_blank" rel="noopener" class="link-secondary">
-            View Release on GitHub →
-          </a>
+          <!-- Phone Mockup Screen -->
+          <div class="phone-screen-frame">
+            <!-- Virtual Flashlight Beam -->
+            <div class="torch-beam" id="virtualTorchBeam"></div>
+
+            <div class="phone-status-bar">
+              <span>9:41</span>
+              <span class="phone-indicators">5G • 100%</span>
+            </div>
+
+            <div class="phone-widget">
+              <!-- Torch indicator -->
+              <div class="widget-row">
+                <span class="widget-label">🔦 Flashlight</span>
+                <span class="status-tag off" id="torchStatusTag">OFF</span>
+              </div>
+              
+              <!-- Volume slider -->
+              <div class="widget-row">
+                <span class="widget-label">🔊 Phone Volume</span>
+                <span class="status-value" id="volumeStatusValue">65%</span>
+              </div>
+              <div class="volume-track">
+                <div class="volume-fill" id="virtualVolumeFill" style="width: 65%;"></div>
+              </div>
+
+              <!-- Active Timer -->
+              <div class="widget-row timer-row" id="timerWidgetRow" style="display: none;">
+                <span class="widget-label">⏰ Active Timer</span>
+                <span class="timer-countdown" id="virtualTimerCountdown">10:00</span>
+              </div>
+            </div>
+
+            <div class="mockup-hint">Say: <em>"Turn on torch"</em> or <em>"Volume 90%"</em></div>
+          </div>
         </div>
       </div>
 
-      <!-- Card 2: Interactive Live Voice/Chat Simulator -->
+      <!-- Right Column: Interactive Voice/Chat Simulator & Voice Studio -->
       <div class="glass-card simulator-card">
-        <div class="card-header">
-          <div class="icon-circle icon-violet">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+        <div class="card-header simulator-header">
+          <div class="sim-header-left">
+            <div class="icon-circle icon-violet">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            </div>
+            <div>
+              <h2 class="card-title">EchoBand Voice Studio</h2>
+              <p class="card-subtitle" id="simulatorSubhead">Connected to Google Gemini 3.5 Flash Gateway</p>
+            </div>
           </div>
-          <div>
-            <h2 class="card-title">Try EchoBand Online</h2>
-            <p class="card-subtitle">Live test with Google Gemini 3.5 Flash Gateway</p>
+
+          <!-- Language Selector -->
+          <div class="lang-selector-wrapper">
+            <select id="simLanguageSelect" class="sim-lang-select" title="Choose Voice Language">
+              <option value="en-IN">🇮🇳 Indian Hinglish</option>
+              <option value="hi-IN">🇮🇳 Hindi (हिन्दी)</option>
+              <option value="ta-IN">🇮🇳 Tamil (தமிழ்)</option>
+              <option value="te-IN">🇮🇳 Telugu (తెలుగు)</option>
+              <option value="en-US">🌐 English (Global)</option>
+              <option value="es-ES">🇪🇸 Spanish</option>
+              <option value="fr-FR">🇫🇷 French</option>
+              <option value="de-DE">🇩🇪 German</option>
+            </select>
           </div>
         </div>
 
@@ -165,7 +298,7 @@
           <div class="chat-bubble ai-bubble">
             <div class="bubble-avatar">EB</div>
             <div class="bubble-content">
-              <p>Namaste! Main hoon EchoBand. Aap mujhse Indian Hinglish mein baat kar sakte hain, torch on/off bol sakte hain, ya koi memory yaad rakhne ko bol sakte hain. Try karo!</p>
+              <p>Namaste! Main hoon EchoBand. Aap mujhse Indian Hinglish mein baat kar sakte hain, torch on/off bol sakte hain, volume adjust kar sakte hain, ya koi memory yaad rakhne ko bol sakte hain. Try karo!</p>
             </div>
           </div>
         </div>
@@ -182,13 +315,26 @@
           <span class="wave-bar"></span>
         </div>
 
+        <!-- Interactive Memory Vault Pills -->
+        <div class="memory-vault-bar">
+          <div class="memory-vault-title">
+            <span>🧠 Memory Vault</span>
+            <button class="clear-memory-btn" id="clearMemoryBtn" title="Clear Stored Memories">Reset</button>
+          </div>
+          <div class="memory-chips" id="memoryChipsContainer">
+            <span class="memory-chip">Sony WH-CH510</span>
+            <span class="memory-chip">Hinglish Preferred</span>
+          </div>
+        </div>
+
         <!-- Quick Prompt Chips -->
         <div class="prompt-chips">
           <button class="chip" data-prompt="Turn on torch light">💡 "Turn on torch"</button>
-          <button class="chip" data-prompt="Volume 80% kardo">🔊 "Volume 80% kardo"</button>
+          <button class="chip" data-prompt="Flashlight band karo">🔦 "Torch off"</button>
+          <button class="chip" data-prompt="Volume 85% kardo">🔊 "Volume 85%"</button>
           <button class="chip" data-prompt="Mera favourite color electric blue hai, yaad rakhna">🧠 "Mera favourite color..."</button>
-          <button class="chip" data-prompt="Set a timer for 15 minutes">⏰ "Set a 15 min timer"</button>
-          <button class="chip" data-prompt="Kya haal chaal hai bhai?">🇮🇳 "Bhai kya haal chaal?"</button>
+          <button class="chip" data-prompt="Set a timer for 5 minutes">⏰ "Set 5 min timer"</button>
+          <button class="chip" data-prompt="Bhai kaise ho? Kya haal chaal?">🇮🇳 "Bhai kya haal chaal?"</button>
         </div>
 
         <!-- Input control bar -->
@@ -196,11 +342,73 @@
           <button type="button" class="mic-toggle-btn" id="micToggleBtn" title="Speak into your microphone">
             <svg class="icon mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
           </button>
-          <input type="text" id="demoMessageInput" placeholder="Type or click the mic to speak..." autocomplete="off" />
+          <input type="text" id="demoMessageInput" placeholder="Speak or type your command in Hinglish..." autocomplete="off" />
           <button type="submit" class="send-btn" id="sendBtn" title="Send message">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
           </button>
         </form>
+      </div>
+    </section>
+
+    <!-- Apple iOS Installation Package Guide Section -->
+    <section class="apple-guide-section container" id="appleGuideSection">
+      <div class="section-heading text-center">
+        <span class="section-tag">APPLE ECOSYSTEM</span>
+        <h2 class="section-title">Install on iPhone, iPad & Mac in 2 Taps</h2>
+        <p class="section-subtitle">No App Store needed. Install EchoBand as a standalone app with full-screen experience and hardware voice audio.</p>
+      </div>
+
+      <div class="apple-methods-grid">
+        <!-- Method 1: MobileConfig Profile -->
+        <div class="apple-method-card">
+          <div class="apple-badge">RECOMMENDED</div>
+          <div class="apple-card-icon">📦</div>
+          <h3 class="apple-card-title">1. Apple WebClip Profile (.mobileconfig)</h3>
+          <p class="apple-card-desc">Downloads Apple's native configuration package file directly to your iOS device.</p>
+          <ol class="apple-steps-list">
+            <li>Tap <strong>Download Apple Profile</strong> below.</li>
+            <li>Tap <strong>Allow</strong> when iPhone prompts *"Profile Downloaded"*.</li>
+            <li>Open <strong>Settings</strong> &gt; tap <strong>Profile Downloaded</strong> &gt; tap <strong>Install</strong>.</li>
+            <li>EchoBand appears on your Home Screen as an app!</li>
+          </ol>
+          <a href="VEXLORA-EchoBand.mobileconfig" class="btn btn-secondary btn-block">
+            Download Apple iOS Profile (.mobileconfig)
+          </a>
+        </div>
+
+        <!-- Method 2: Safari PWA Add to Home Screen -->
+        <div class="apple-method-card">
+          <div class="apple-badge secondary">ZERO DOWNLOAD</div>
+          <div class="apple-card-icon">📲</div>
+          <h3 class="apple-card-title">2. Safari "Add to Home Screen"</h3>
+          <p class="apple-card-desc">Installs the official PWA web app directly through Safari with zero setup.</p>
+          <ol class="apple-steps-list">
+            <li>Open this page in <strong>Safari</strong> on iPhone or iPad.</li>
+            <li>Tap the <strong>Share</strong> button (⎋ square with arrow) at the bottom.</li>
+            <li>Scroll down and tap <strong>"Add to Home Screen" (⊞)</strong>.</li>
+            <li>Tap <strong>Add</strong> in the top right corner. Done!</li>
+          </ol>
+          <button class="btn btn-secondary btn-block" id="copyCurrentUrlBtn">
+            Copy Page Link to Open in Safari
+          </button>
+        </div>
+
+        <!-- Method 3: Action Button & Siri Shortcut -->
+        <div class="apple-method-card">
+          <div class="apple-badge accent">PRO FEATURE</div>
+          <div class="apple-card-icon">⚡</div>
+          <h3 class="apple-card-title">3. iPhone Action Button & Siri</h3>
+          <p class="apple-card-desc">Assign EchoBand to the Action Button on iPhone 15/16 Pro or summon via Siri.</p>
+          <ol class="apple-steps-list">
+            <li>Install EchoBand via Method 1 or 2.</li>
+            <li>Open the iOS <strong>Shortcuts</strong> app &gt; Add New Shortcut.</li>
+            <li>Add action: <em>Open URLs</em> &gt; paste <code>https://vexlora-echoband.vercel.app</code>.</li>
+            <li>Assign shortcut to the <strong>Action Button</strong> in Settings!</li>
+          </ol>
+          <a href="#quickInstallSection" class="btn btn-secondary btn-block">
+            Launch Web App
+          </a>
+        </div>
       </div>
     </section>
 
@@ -251,13 +459,13 @@
         <!-- Feature 6 -->
         <div class="feature-card">
           <div class="feature-icon icon-pink">⚡</div>
-          <h3 class="feature-title">Background Foreground Service</h3>
-          <p class="feature-desc">Runs in the background without battery draining. Android foreground service ensures EchoBand stays alive while multitasking or screen-off.</p>
+          <h3 class="feature-title">Custom Gemini API Key</h3>
+          <p class="feature-desc">Paste your personal Google Gemini API key to remove all rate limits and enjoy dedicated high-speed responses from Gemini 3.5 Flash.</p>
         </div>
       </div>
     </section>
 
-    <!-- Step-by-Step Installation Guide -->
+    <!-- Step-by-Step Installation Guide (Android) -->
     <section class="install-guide-section container">
       <div class="section-heading text-center">
         <span class="section-tag">QUICK SETUP</span>
@@ -269,13 +477,13 @@
         <div class="step-card">
           <div class="step-number">01</div>
           <h3 class="step-title">Download APK</h3>
-          <p class="step-desc">Tap the <strong>Download APK</strong> button above or scan the QR code. Your browser will save <code>VEXLORA-EchoBand-v1.0.0.apk</code>.</p>
+          <p class="step-desc">Tap <strong>Download APK</strong> or scan the QR code. Your browser will download <code>VEXLORA-EchoBand-v1.0.0.apk</code>.</p>
         </div>
 
         <div class="step-card">
           <div class="step-number">02</div>
           <h3 class="step-title">Allow Unknown Sources</h3>
-          <p class="step-desc">When prompted by Chrome/Downloads, tap <strong>Settings</strong> and enable <strong>"Allow from this source"</strong> (or tap <strong>"Install Anyway"</strong>).</p>
+          <p class="step-desc">When prompted by Android, tap <strong>Settings</strong> and enable <strong>"Allow from this source"</strong> (or tap <strong>"Install Anyway"</strong>).</p>
         </div>
 
         <div class="step-card">
@@ -296,9 +504,14 @@
           <h3>Ready to upgrade your headphones?</h3>
           <p>Get the latest production build and enjoy voice autonomy today.</p>
         </div>
-        <a href="https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk" class="btn btn-primary btn-md">
-          Download v1.0.0 APK (16.4 MB)
-        </a>
+        <div class="banner-btns">
+          <a href="https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk" class="btn btn-primary btn-md">
+            Download Android APK (16.4 MB)
+          </a>
+          <a href="VEXLORA-EchoBand.mobileconfig" class="btn btn-secondary btn-md">
+            Apple iOS Package (.mobileconfig)
+          </a>
+        </div>
       </div>
     </section>
 
@@ -311,6 +524,22 @@
 
       <div class="faq-list">
         <details class="faq-item">
+          <summary class="faq-question">How do I apply my own Gemini API Key?</summary>
+          <div class="faq-answer">
+            <p>You can apply your Gemini API key in two places:
+            <br>1. <strong>In this Web App</strong>: Click the <strong>Cloud Mode / Custom Key</strong> button in the top navigation bar, paste your key, and tap <strong>Verify & Save</strong>.
+            <br>2. <strong>In the Android App</strong>: Tap the Settings ⚙️ icon in the top right, paste your Google AI Studio API key, and hit Save. Your key is stored exclusively on your device and enables unlimited high-speed requests.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Can Apple iPhone & iPad users install EchoBand?</summary>
+          <div class="faq-answer">
+            <p>Yes! Apple users can download the <strong>Apple iOS WebClip Profile (<code>.mobileconfig</code>)</strong> directly from this page, or open Safari and tap <strong>Share &gt; Add to Home Screen</strong>. It installs an app icon on your iPhone home screen that launches full-screen with offline caching.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
           <summary class="faq-question">Why does Android show a warning when installing the APK?</summary>
           <div class="faq-answer">
             <p>Android displays a standard "File might be harmful" or "Unknown app" warning whenever an APK is installed directly from the web rather than the Google Play Store. VEXLORA EchoBand is 100% open-source, safe, and contains zero trackers or ads. You can safely tap <strong>Install anyway</strong>.</p>
@@ -318,28 +547,84 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">Can I use my own Gemini API Key?</summary>
-          <div class="faq-answer">
-            <p>Yes! In the app's Settings screen, you can paste your own Google Gemini API key directly to unlock unlimited high-speed requests, or you can use our pre-configured cloud gateway without entering any keys.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
           <summary class="faq-question">Does it only work with Sony WH-CH510 headphones?</summary>
           <div class="faq-answer">
-            <p>While EchoBand is specifically tested and optimized for the Sony WH-CH510 button hooks and Bluetooth SCO profile, it works seamlessly with <strong>any Bluetooth earbuds, wired headphones, or directly through your phone's built-in speaker and microphone</strong>.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">How does phone hardware control work?</summary>
-          <div class="faq-answer">
-            <p>EchoBand parses speech intents locally. Phrases like "torch on", "volume 70%", or "timer for 5 minutes" trigger native Android system services (<code>CameraManager</code>, <code>AudioManager</code>, and <code>AlarmClock</code>) with zero cloud latency.</p>
+            <p>While EchoBand is specifically tuned for Sony WH-CH510 button hooks and Bluetooth SCO profiles, it works seamlessly with <strong>any Bluetooth earbuds, wired headphones, or directly through your phone's speaker and microphone</strong>.</p>
           </div>
         </details>
       </div>
     </section>
   </main>
+
+  <!-- Gemini API Key Modal -->
+  <div class="modal-backdrop" id="apiKeyModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">⚡</span>
+          <h3>Gemini API Key Vault</h3>
+        </div>
+        <button class="modal-close-btn" id="closeApiKeyModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">
+          Apply your personal Google Gemini API key to unlock <strong>unlimited quota</strong>, zero shared limits, and direct Gemini 3.5 Flash high-speed inference.
+        </p>
+
+        <div class="key-input-wrapper">
+          <input type="password" id="customApiKeyInput" placeholder="AIzaSy..." autocomplete="off" />
+          <button type="button" class="key-toggle-vis" id="toggleKeyVisibilityBtn" title="Show/Hide Key">👁️</button>
+        </div>
+
+        <div class="key-status-msg" id="keyStatusMsg"></div>
+
+        <div class="key-get-help">
+          <span>Don't have a key?</span>
+          <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Get a Free Gemini Key at Google AI Studio →</a>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost btn-sm" id="clearApiKeyBtn">Reset to Free Cloud</button>
+        <button class="btn btn-primary btn-md" id="saveApiKeyBtn">Verify & Save Key</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- iOS Safari PWA Install Modal -->
+  <div class="modal-backdrop" id="iosPwaModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">📲</span>
+          <h3>Install on iPhone in Safari</h3>
+        </div>
+        <button class="modal-close-btn" id="closeIosPwaModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="ios-install-steps">
+          <div class="ios-step-row">
+            <div class="ios-step-badge">1</div>
+            <div class="ios-step-text">Open this site in <strong>Safari</strong> on your iPhone or iPad.</div>
+          </div>
+          <div class="ios-step-row">
+            <div class="ios-step-badge">2</div>
+            <div class="ios-step-text">Tap the <strong>Share</strong> button <span class="share-icon-preview">⎋</span> in the Safari bottom bar.</div>
+          </div>
+          <div class="ios-step-row">
+            <div class="ios-step-badge">3</div>
+            <div class="ios-step-text">Scroll down and tap <strong>Add to Home Screen (⊞)</strong>.</div>
+          </div>
+          <div class="ios-step-row">
+            <div class="ios-step-badge">4</div>
+            <div class="ios-step-text">Tap <strong>Add</strong> in the top-right corner. EchoBand is now an app on your home screen!</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary btn-block" id="copySafariUrlBtn">Copy Link for Safari</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Notification Container -->
   <div class="toast" id="toast"></div>
@@ -352,12 +637,13 @@
           <img src="favicon.svg" alt="VEXLORA Logo" class="brand-logo sm" />
           <span class="brand-name">VEXLORA</span>
         </div>
-        <p class="footer-copy">Crafted for AI wearables & next-gen voice interfaces by <a href="https://github.com/khushgit84" target="_blank" rel="noopener">khushgit84</a>.</p>
+        <p class="footer-copy">Universal AI wearable platform for Android & Apple iOS by <a href="https://github.com/khushgit84" target="_blank" rel="noopener">khushgit84</a>.</p>
       </div>
 
       <div class="footer-links">
         <a href="https://github.com/khushgit84/vexlora-echoband" target="_blank" rel="noopener">GitHub Repository</a>
         <a href="https://github.com/khushgit84/vexlora-echoband/releases/tag/v1.0.0" target="_blank" rel="noopener">v1.0.0 Release</a>
+        <a href="VEXLORA-EchoBand.mobileconfig">Apple Profile</a>
         <a href="https://backend-liard-six-23.vercel.app/" target="_blank" rel="noopener">API Status</a>
       </div>
     </div>

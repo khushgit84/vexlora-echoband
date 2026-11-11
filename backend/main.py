@@ -38,8 +38,13 @@ SYSTEM_PROMPT = (
 
 
 class ChatRequest(BaseModel):
-    message: str = Field(..., min_length=1, description="Recognized speech from Android client")
+    message: Optional[str] = Field(None, description="Recognized speech from Android client")
     conversationId: Optional[str] = Field(None, description="Optional conversation session ID")
+    apiKey: Optional[str] = Field(None, description="Optional custom Gemini API Key from user")
+
+
+class ValidateKeyRequest(BaseModel):
+    apiKey: str = Field(..., min_length=1, description="Gemini API Key to test")
 
 
 class ChatResponse(BaseModel):
@@ -80,26 +85,62 @@ def health_check():
     return {"status": "healthy"}
 
 
-@app.post("/", response_model=ChatResponse)
-@app.post("/api/index.py", response_model=ChatResponse)
-@app.post("/api/v1/chat", response_model=ChatResponse)
-@app.post("/chat", response_model=ChatResponse)
-@app.post("/api/chat", response_model=ChatResponse)
-@app.post("/api/index/api/v1/chat", response_model=ChatResponse)
-async def chat_with_gemini(request: ChatRequest):
-    if not request.message.strip():
+@app.post("/api/v1/validate-key")
+@app.post("/validate-key")
+async def validate_key(req: ValidateKeyRequest):
+    key = (req.apiKey or "").strip()
+    if not key:
+        raise HTTPException(status_code=400, detail="Key cannot be empty")
+    test_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={key}"
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.get(test_url)
+        if resp.status_code == 200:
+            return {"valid": True, "message": "Key successfully verified with Google Gemini!"}
+        return {"valid": False, "error": f"Google returned code {resp.status_code}"}
+    except Exception as e:
+        return {"valid": False, "error": str(e)}
+
+
+@app.post("/")
+@app.post("/api/index.py")
+@app.post("/api/v1/chat")
+@app.post("/chat")
+@app.post("/api/chat")
+@app.post("/api/index/api/v1/chat")
+async def chat_with_gemini(request: ChatRequest, raw_req: Request):
+    path = (raw_req.headers.get("x-matched-path", "") or raw_req.url.path).lower()
+    
+    # Check if this request is intended for key validation
+    if "validate-key" in path or (request.apiKey and not request.message):
+        key = (request.apiKey or "").strip()
+        if not key:
+            return {"valid": False, "error": "API key cannot be empty"}
+        test_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={key}"
+        try:
+            async with httpx.AsyncClient(timeout=10.0) as client:
+                resp = await client.get(test_url)
+            if resp.status_code == 200:
+                return {"valid": True, "message": "Key successfully verified with Google Gemini!"}
+            return {"valid": False, "error": f"Google returned code {resp.status_code}"}
+        except Exception as e:
+            return {"valid": False, "error": str(e)}
+
+    # Standard Chat Execution
+    if not request.message or not request.message.strip():
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Message cannot be blank",
         )
 
-    if not GEMINI_API_KEY:
+    active_key = (request.apiKey or "").strip() or raw_req.headers.get("x-gemini-api-key") or GEMINI_API_KEY
+    if not active_key:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="GEMINI_API_KEY is not configured on the backend server. Set it in backend/.env file.",
+            detail="GEMINI_API_KEY is not configured. Please supply your Gemini API key.",
         )
 
-    endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={GEMINI_API_KEY}"
+    endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={active_key}"
 
     payload = {
         "system_instruction": {

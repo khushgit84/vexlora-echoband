@@ -1,14 +1,16 @@
 # VEXLORA EchoBand — AI Voice Assistant (Android & Wearable Platform)
 
 [![Install App](https://img.shields.io/badge/Web_Installer-Live_on_Vercel-00B4FF?style=for-the-badge&logo=vercel)](https://vexlora-echoband.vercel.app)
-[![Download APK](https://img.shields.io/badge/Download_APK-v1.0.0_(16.4_MB)-8B5CF6?style=for-the-badge&logo=android)](https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk)
+[![Download APK](https://img.shields.io/badge/Android_APK-v1.0.0_(16.4_MB)-8B5CF6?style=for-the-badge&logo=android)](https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk)
+[![Apple iOS](https://img.shields.io/badge/Apple_iOS-MobileConfig_Package-EC4899?style=for-the-badge&logo=apple)](https://vexlora-echoband.vercel.app/VEXLORA-EchoBand.mobileconfig)
 [![GitHub Release](https://img.shields.io/github/v/release/khushgit84/vexlora-echoband?style=for-the-badge&color=10B981)](https://github.com/khushgit84/vexlora-echoband/releases/tag/v1.0.0)
 [![Backend Status](https://img.shields.io/badge/API_Gateway-Online-00E5A0?style=for-the-badge&logo=fastapi)](https://backend-liard-six-23.vercel.app/)
 
-A production software release of **VEXLORA EchoBand**, an AI voice assistant designed to pair with **Sony WH-CH510 Bluetooth headphones** and any Android device. Features a futuristic cyber interface built with **Jetpack Compose**, **Material 3**, continuous **Speech Recognition**, calibrated **Indian Hinglish TextToSpeech**, native **Phone Hardware Control** (flashlight/volume/timers), a **Persistent Memory Vault**, and a serverless **Google Gemini 3.5 Flash** backend.
+A production software release of **VEXLORA EchoBand**, an AI voice assistant designed to pair with **Sony WH-CH510 Bluetooth headphones** across **Android & Apple iOS devices**. Features a futuristic cyber interface built with **Jetpack Compose**, **Material 3**, continuous **Speech Recognition**, calibrated **Indian Hinglish TextToSpeech**, native **Phone Hardware Control** (flashlight/volume/timers), a **Persistent Memory Vault**, **Custom Gemini API Key Vault**, and a serverless **Google Gemini 3.5 Flash** backend.
 
 🌐 **Web Installer & Live Demo**: [https://vexlora-echoband.vercel.app](https://vexlora-echoband.vercel.app)  
-📥 **Direct APK Download**: [VEXLORA-EchoBand-v1.0.0.apk (16.4 MB)](https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk)
+🤖 **Android APK Download**: [VEXLORA-EchoBand-v1.0.0.apk (16.4 MB)](https://github.com/khushgit84/vexlora-echoband/releases/download/v1.0.0/VEXLORA-EchoBand-v1.0.0.apk)  
+🍎 **Apple iOS Installation Package**: [VEXLORA-EchoBand.mobileconfig](https://vexlora-echoband.vercel.app/VEXLORA-EchoBand.mobileconfig) (or Safari > Add to Home Screen)
 
 ---
 
