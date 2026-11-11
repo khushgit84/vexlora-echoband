@@ -49,9 +49,13 @@ class ChatResponse(BaseModel):
 
 
 @app.get("/")
+@app.head("/")
 @app.get("/api")
+@app.head("/api")
 @app.get("/api/index")
+@app.head("/api/index")
 @app.get("/api/index.py")
+@app.head("/api/index.py")
 def root(request: Request):
     return {
         "service": "VEXLORA EchoBand AI Voice Gateway",
@@ -67,8 +71,11 @@ def root(request: Request):
 
 
 @app.get("/health")
+@app.head("/health")
 @app.get("/api/health")
+@app.head("/api/health")
 @app.get("/api/index/health")
+@app.head("/api/index/health")
 def health_check():
     return {"status": "healthy"}
 
